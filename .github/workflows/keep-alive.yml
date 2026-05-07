@@ -1,0 +1,12 @@
+name: 保持工作流活跃
+on:
+  schedule:
+    - cron: '0 0 */50 * *'  # 每50天运行一次，防止60天禁用
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 保持仓库活跃
+        run: echo "仓库已激活，工作流保持启用状态"
